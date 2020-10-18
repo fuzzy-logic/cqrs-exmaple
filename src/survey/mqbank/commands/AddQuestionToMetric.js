@@ -1,7 +1,7 @@
-
-const Command = require('../../core/Command');
-const CommandHandler = require('../../core/CommandHandler');
-const Event = require('../../core/Event');
+const logger = require('sexylog');
+const Command = require('@cmd-ctrl/core/model/Command');
+const CommandHandler = require('@cmd-ctrl/core/model/CommandHandler');
+const Event = require('@cmd-ctrl/core/model/Event');
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
@@ -23,10 +23,10 @@ module.exports.Command = function(command) {
 
 module.exports.Handler = class AddQuestionToMetricCommandHander extends CommandHandler {
     execute()  {
-        // console.log(`AddQuestionToMetricCommandHander: this.entity=${JSON.stringify(this.entity)}`);
-        //console.log(`AddQuestionToMetricCommandHander: this.command=${JSON.stringify(this.command)}`);
+        // logger.trace(`AddQuestionToMetricCommandHander: this.entity=${JSON.stringify(this.entity)}`);
+        //logger.trace(`AddQuestionToMetricCommandHander: this.command=${JSON.stringify(this.command)}`);
         const question = this.command.mutation;
-        console.log(`AddQuestionToMetricCommandHander: question=${JSON.stringify(question)}`);
+        logger.trace(`question=${JSON.stringify(question)}`);
         this.entity.questions.push(question);
         return this.entity;
     }

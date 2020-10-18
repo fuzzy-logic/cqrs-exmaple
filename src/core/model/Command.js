@@ -7,6 +7,7 @@ const commandSchema = new Schema({
   entityType: { type: String, immutable: true, required: true },
   action:   { type: String, immutable: true, required: true },
   mutation:  { type: Object, immutable: true, default: {} },
+  modulePath: { type: String, immutable: true, required: true },
   date: { type: Date, default: Date.now, immutable: true },
 }, /* this allows virtual funcs to print out: */ { toJSON: { virtuals: true } });
 
