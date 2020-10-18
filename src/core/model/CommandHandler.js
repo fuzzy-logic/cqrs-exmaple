@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require('uuid');
 
 module.exports = class Command {
     constructor(entity, command) {
-      this.entity = this.copyEntity(entity);
+      this.entity = entity;
       this.command  = command;
       Object.freeze(this);
     }
